@@ -1,6 +1,10 @@
 # Quote-Collector
 A full-stack MERN application for fellow quote collectors
 
+=== Link to React Repo ===
+
+React code for the front-end of this project can be found [here](https://github.com/johndwatt/Quote-Collector-FrontEnd).
+
 === Inspiration ===
 
 I have been collecting quotes since I was in highschool. On a field trip, I visited the Ronald Reagan library in Simi Valley, California, USA and noted that the former president collected quotes. I decided to take up the habit; over the course of several years I filled up over eight 200+ page notebooks with quotes. I collected quotes from the things I read, the courses I took, and speeches/podcasts I listened to either at live in-person events or in prerecorded videos. This app is meant to make the quote collection process more organized and accessible than the clunky process of writing every quote down one by one in unshareable notebooks. 
