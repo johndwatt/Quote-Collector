@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/johndwatt/Quote-Collector#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
     "dotenv": "^12.0.3",
     "express": "^4.17.2",
-    "method-override": "^3.0.0",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.3.0",
     "mongoose": "^6.1.6"
   },
