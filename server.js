@@ -12,6 +12,7 @@ app.use(cors());
 
 // API routes
 
+// Connection string
 app.listen(PORT, () => {
     console.log(`Server is live on port ${PORT}!`);
 });
