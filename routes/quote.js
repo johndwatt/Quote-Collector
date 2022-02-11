@@ -5,6 +5,7 @@ const controllers = require("../controllers");
 // Routes
 router.get("/quotes", controllers.quote_ctrl.quoteIndex);
 router.get("/quotes/:id", controllers.quote_ctrl.quoteShow);
-router.get("/quotes/:id/edit", controllers.quote_ctrl.quoteUpdate);
+router.post("/quotes/:id", controllers.quote_ctrl.quoteCreate);
+router.put("/quotes/:id", controllers.quote_ctrl.quoteUpdate);
 
 module.exports = router;
