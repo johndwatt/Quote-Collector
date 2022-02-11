@@ -54,7 +54,17 @@ const quoteCreate = function(req, res, next){
 
 const quoteUpdate = function(req, res, next){
     try {
-        return res.send(`Quotes UPDATE route works with id: ${req.params.id}`);
+        Quote.findById(req.params.id)
+            .then(foundQuote => {
+                foundQuote.content = req.body.content;
+                foundQuote.author = req.body.author;
+                foundQuote.tags = req.body.tags;
+
+                foundQuote.save()
+                .then(() => res.status(200).json("Quote updated!"))
+                .catch(error => res.status(400).json('Error:', error));
+            })
+            .catch(error => res.status(400).json('Error:', error));
     } catch (error) {
         console.log(error);
         req.error = error;
