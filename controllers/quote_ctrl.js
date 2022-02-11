@@ -17,7 +17,12 @@ const quoteIndex = function(req, res, next){
 
 const quoteShow = function(req, res, next){
     try {
-        return res.send(`Quotes SHOW route works with id: ${req.params.id}`);
+        Quote.findById(req.params.id)
+            .then(foundQuote => res.status(200).json({
+                quote: foundQuote,
+            }))
+            .catch(error => res.status(400).json('Error:', error)
+        );
     } catch (error) {
         console.log(error);
         req.error = error;
