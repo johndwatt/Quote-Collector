@@ -64,7 +64,9 @@ const quoteUpdate = function(req, res, next){
 
 const quoteDelete = function(req, res, next){
     try {
-        return res.send(`Quotes DELETE route works with id: ${req.params.id}`);
+        Quote.findByIdAndDelete(req.params.id)
+        .then(() => res.status(200).json("Quote Deleted!"))
+        .catch(error => res.status(400).json('Error: ', error));
     } catch (error) {
         console.log(error);
         req.error = error;
