@@ -2,7 +2,7 @@ const { Quote } = require("../models");
 
 const quoteIndex = function(req, res, next){
     try {
-        return res.send("Quotes index page works");
+        return res.send("Quotes INDEX page works");
     } catch (error) {
         console.log(error);
         req.error = error;
@@ -12,7 +12,17 @@ const quoteIndex = function(req, res, next){
 
 const quoteShow = function(req, res, next){
     try {
-        return res.send(`Quotes show page works with id ${req.params.id}`);
+        return res.send(`Quotes SHOW page works with id: ${req.params.id}`);
+    } catch (error) {
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+}
+
+const quoteUpdate = function(req, res, next){
+    try {
+        return res.send(`Quotes UPDATE page works with id: ${req.params.id}`);
     } catch (error) {
         console.log(error);
         req.error = error;
@@ -23,4 +33,5 @@ const quoteShow = function(req, res, next){
 module.exports = {
     quoteIndex,
     quoteShow,
+    quoteUpdate
 }
