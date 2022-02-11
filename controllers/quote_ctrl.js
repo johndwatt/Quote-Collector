@@ -22,7 +22,7 @@ const quoteShow = function(req, res, next){
 
 const quoteCreate = function(req, res, next){
     try {
-        return res.send(`Quotes CREATE route works with id: ${req.params.id}`);
+        return res.send(`Quotes CREATE route works`);
     } catch (error) {
         console.log(error);
         req.error = error;
@@ -40,6 +40,16 @@ const quoteUpdate = function(req, res, next){
     }
 }
 
+const quoteDelete = function(req, res, next){
+    try {
+        return res.send(`Quotes DELETE route works with id: ${req.params.id}`);
+    } catch (error) {
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+}
+
 
 
 module.exports = {
@@ -47,4 +57,5 @@ module.exports = {
     quoteShow,
     quoteCreate,
     quoteUpdate,
+    quoteDelete
 }
