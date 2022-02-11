@@ -27,7 +27,19 @@ const quoteShow = function(req, res, next){
 
 const quoteCreate = function(req, res, next){
     try {
-        return res.send(`Quotes CREATE route works`);
+        const content = req.body.content;
+        const author = req.body.author;
+        const tags = req.body.tags;
+    
+        const newQuote = new Quote({
+            content,
+            author,
+            tags,
+        });
+    
+        newQuote.save()
+            .then(() => res.status(201).json("Quote added!"))
+            .catch(err => res.status(400).json('Error: ', err));
     } catch (error) {
         console.log(error);
         req.error = error;

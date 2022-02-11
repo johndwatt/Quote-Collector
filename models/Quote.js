@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const quoteSchema = new mongoose.Schema(
     {
-        quote: {
+        content: {
             type: String,
             required: [true, "You cannot create an empty quote."]
         },
