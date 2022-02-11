@@ -2,7 +2,12 @@ const { Quote } = require("../models");
 
 const quoteIndex = function(req, res, next){
     try {
-        return res.send("Quotes INDEX route works");
+        Quote.find()
+            .then(foundQuotes => res.status(200).json({
+                quotes: foundQuotes,
+            }))
+            .catch(error => res.status(400).json('Error:', error)
+        );
     } catch (error) {
         console.log(error);
         req.error = error;
@@ -49,8 +54,6 @@ const quoteDelete = function(req, res, next){
         return next();
     }
 }
-
-
 
 module.exports = {
     quoteIndex,
