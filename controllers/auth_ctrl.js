@@ -1,4 +1,5 @@
 const { User } = require("../models");
+const bcrypt = require("bcryptjs");
 
 const loginRoute = function(req, res, next){
     try {
@@ -20,13 +21,32 @@ const logoutRoute = function(req, res, next){
     }
 }
 
-const signupRoute = function(req, res, next){
+const signupRoute = async function(req, res, next){
     try {
-        res.send("Signup route works");
+        const foundUser = await User.findOne({ email: req.body.email });
+        if (foundUser){ throw "userFound"};
+
+        const salt = await bcrypt.genSalt(10);
+        const hashPass = await bcrypt.hash(req.body.password, salt);
+        const newUser = await User.create({ 
+            ...req.body, 
+            password: hashPass,
+        });
+
+        return res.status(201).json({
+            message: "User Created!",
+            user: newUser,
+        });
+        // ADD LOGIN LATER
     } catch (error) {
-        console.log(error);
-        error = req.error;
-        return next();
+        if (error = "userFound") {
+            return res.status(400).json({
+                message: "An account with this email address already exists. Please log in instead.",
+              });
+        }
+        return res.status(500).json({
+            message: "Something went wrong. Please try again",
+          });
     }
 }
 

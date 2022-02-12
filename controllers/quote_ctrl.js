@@ -30,7 +30,7 @@ const quoteCreate = function(req, res, next){
 
     newQuote.save()
         .then(() => res.status(201).json("Quote added!"))
-        .catch(err => res.status(400).json('Error: ', err));
+        .catch(error => res.status(400).json('Error: ', error));
 }
 
 const quoteUpdate = function(req, res, next){

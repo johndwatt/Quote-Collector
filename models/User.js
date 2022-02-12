@@ -26,10 +26,10 @@ const userSchema = new mongoose.Schema(
 
 userSchema.set("toJSON", {
     transform: (doc, ret, opt) => {
-      delete ret["password"];
-      return ret;
+        delete ret["password"];
+        return ret;
     },
-  });
+});
 
 const User = mongoose.model("User", userSchema);
 
