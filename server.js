@@ -16,6 +16,7 @@ app.use(require("./utils/logger"));
 
 // API routes
 app.use("/", routes.quote);
+app.use("/", routes.auth);
 
 // Connection string
 app.listen(PORT, () => {
