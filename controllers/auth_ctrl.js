@@ -6,8 +6,9 @@ const loginRoute = function(req, res, next){
         res.send("Login route works");
     } catch (error) {
         console.log(error);
-        error = req.error;
-        return next();
+        return res.status(500).json({
+            message: "Something went wrong. Please try again",
+        });
     }
 }
 
@@ -16,8 +17,9 @@ const logoutRoute = function(req, res, next){
         res.send("Logout route works");
     } catch (error) {
         console.log(error);
-        error = req.error;
-        return next();
+        return res.status(500).json({
+            message: "Something went wrong. Please try again",
+        });
     }
 }
 
@@ -39,6 +41,7 @@ const signupRoute = async function(req, res, next){
         });
         // ADD LOGIN LATER
     } catch (error) {
+        console.log(error);
         if (error = "userFound") {
             return res.status(400).json({
                 message: "An account with this email address already exists. Please log in instead.",
