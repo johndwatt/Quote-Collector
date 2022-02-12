@@ -10,6 +10,16 @@ const loginRoute = function(req, res, next){
     }
 }
 
+const logoutRoute = function(req, res, next){
+    try {
+        res.send("Logout route works");
+    } catch (error) {
+        console.log(error);
+        error = req.error;
+        return next();
+    }
+}
+
 const signupRoute = function(req, res, next){
     try {
         res.send("Signup route works");
@@ -23,4 +33,5 @@ const signupRoute = function(req, res, next){
 module.exports = {
     loginRoute,
     signupRoute,
+    logoutRoute,
 }
