@@ -13,8 +13,7 @@ const quoteShow = function(req, res, next){
         .then(foundQuote => res.status(200).json({
             quote: foundQuote,
         }))
-        .catch(error => res.status(400).json('Error:', error)
-    );
+        .catch(error => res.status(400).json('Error:', error));
 }
 
 const quoteCreate = function(req, res, next){
